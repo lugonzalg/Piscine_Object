@@ -1,27 +1,25 @@
 #pragma once
 
+#include <vector>
+#include <iostream>
+
+struct Account;
+
 struct Bank
 {
     public:
 
-        Bank() :
-            liquidity(0)
-        {
+        Bank();
 
-        }
-
-        friend std::ostream& operator << (std::ostream& p_os, const Bank& p_bank)
-        {
-            p_os << "Bank informations : " << std::endl;
-            p_os << "Liquidity : " << p_bank.liquidity << std::endl;
-            for (auto &clientAccount : p_bank.clientAccounts)
-            p_os << *clientAccount << std::endl;
-            return (p_os);
-        }
+        int get_liquidity() const;
+        const std::vector<Account *> &get_client_accounts() const;
+        void add_client(Account *client);
 
     private:
 
-        int liquidity;
-        std::vector<Account *> clientAccounts;
+        int _liquidity;
+        std::vector<Account *> _client_accounts;
 
 };
+
+std::ostream& operator << (std::ostream& p_os, const Bank& p_bank);
