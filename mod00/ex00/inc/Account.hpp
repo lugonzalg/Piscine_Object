@@ -9,19 +9,20 @@ struct Account
 {
     public:
 
-        Account();
-
         int get_id() const;
         int get_value() const;
 
     private:
+
+        Account();
 
         static int _unique_id;
         int _id;
         int _value;
 
         int add_value(int value);
-        friend void Bank::add_value(Account *client, int value);
+        friend void Bank::add_value(int account_id, int value);
+        friend int Bank::create_account();
 };
 
 
