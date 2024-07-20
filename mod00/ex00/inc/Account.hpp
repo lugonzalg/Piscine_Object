@@ -7,22 +7,18 @@ struct Account
 {
     public:
 
-        Account() :
-            id(-1),
-            value(0)
-        {
-        
-        }
+        Account();
 
-        friend std::ostream& operator << (std::ostream& p_os, const Account& p_account)
-        {
-            p_os << "[" << p_account.id << "] - [" << p_account.value << "]";
-            return (p_os);
-        }
+        int get_id() const;
+        int get_value() const;
 
     private:
-        int id;
-        int value;
+        static int _unique_id;
+        int _id;
+        int _value;
 
 
 };
+
+
+std::ostream& operator << (std::ostream& p_os, const Account& p_account);
