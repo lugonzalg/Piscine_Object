@@ -12,8 +12,6 @@ int main()
 	bank.add_client(&accountA);
 	bank.add_client(&accountB);
 
-	bank.pay(&accountA, 100);
-
 	std::cout << "Account : " << std::endl;
 	std::cout << accountA << std::endl;
 	std::cout << accountB << std::endl;
