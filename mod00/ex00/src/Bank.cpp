@@ -14,16 +14,24 @@ const std::vector<Account> &Bank::get_accounts() const {
     return this->_accounts;
 }
 
-void Bank::add_value(int account_id, int value) {
+int Bank::add_value(int account_id, int value) {
     Account *account;
 
     account = this->_get_account_by_id(account_id);
-    if (account == NULL)
-        return ;
+    if (account == NULL) {
+
+        std::cerr << "[VALUE] - Account with id: " << account_id << " does not exist!\n";
+        return -1;
+    }
+
+    if (value < 0) {
+        std::cerr << "[VALUE] - Cannot add negative funds: " << value << std::endl;
+        return -1;
+    }
     
     this->_liquidity += value;
     value *= 0.95;
-    account->add_value(value);
+    return account->add_value(value);
 }
 
 int Bank::create_account() {
@@ -40,6 +48,13 @@ void Bank::delete_account(int account_id) {
 
     for (it = this->_accounts.begin(); it != this->_accounts.end(); it++) {
         if ((*it).get_id() == account_id) {
+
+            if ((*it).get_debt()) {
+                std::cerr << "Account has debt, cannot delete it\n";
+                return ;
+            }
+
+            this->_liquidity -= (*it).get_value();
             this->_accounts.erase(it);
             break ;
         }
@@ -56,20 +71,25 @@ Account *Bank::_get_account_by_id(int account_id) {
     return NULL;
 }
 
+
 int Bank::give_loan(int account_id, int value) {
     Account *account;
 
-    if (value > this->_liquidity)
-        return -1;
-
     account = this->_get_account_by_id(account_id);
-    if (account == NULL)
+    if (account == NULL) {
+
+        std::cerr << "[LOAN] - Account with id: " << account_id << " does not exist!\n";
         return -1;
+    }
+
+    if (value < 0) {
+        std::cerr << "[LOAN] - Cannot add negative funds: " << value << std::endl;
+        return -1;
+    }
 
     this->_liquidity -= value;
     value *= 1.05;
-    account->add_debt(value);
-    return account->get_debt();
+    return account->add_debt(value);
 }
 
 std::ostream& operator << (std::ostream& p_os, const Bank& p_bank)

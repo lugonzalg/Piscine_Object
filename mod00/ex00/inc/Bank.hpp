@@ -14,7 +14,7 @@ struct Bank
 
         int get_liquidity() const;
         const std::vector<Account> &get_accounts() const;
-        void add_value(int account_id, int value);
+        int add_value(int account_id, int value);
         int give_loan(int account_id, int value);
 
         int create_account();
