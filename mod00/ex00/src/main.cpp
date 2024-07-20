@@ -5,19 +5,13 @@
 
 int main()
 {
-	Account accountA = Account();
-
-	Account accountB = Account();
-
 	Bank bank = Bank();
-	bank.add_client(&accountA);
-	bank.add_client(&accountB);
 
-	std::cout << "Account : " << std::endl;
-	std::cout << accountA << std::endl;
-	std::cout << accountB << std::endl;
+	int accountA_id = bank.create_account();
+	int accountB_id = bank.create_account();
 
-	std::cout << " ----- " << std::endl;
+	bank.add_value(accountA_id, 200);
+	bank.add_value(accountB_id, 100);
 
 	std::cout << "Bank : " << std::endl;
 	std::cout << bank << std::endl;
