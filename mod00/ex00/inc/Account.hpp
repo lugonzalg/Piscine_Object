@@ -3,6 +3,8 @@
 #include <iostream>
 #include <vector>
 
+#include "Bank.hpp"
+
 struct Account
 {
     public:
@@ -13,11 +15,13 @@ struct Account
         int get_value() const;
 
     private:
+
         static int _unique_id;
         int _id;
         int _value;
 
-
+        int add_value(int value);
+        friend void Bank::add_value(Account *client, int value);
 };
 
 

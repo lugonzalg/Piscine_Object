@@ -14,6 +14,7 @@ struct Bank
         int get_liquidity() const;
         const std::vector<Account *> &get_client_accounts() const;
         void add_client(Account *client);
+        void add_value(Account *client, int value);
 
     private:
 

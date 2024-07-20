@@ -11,6 +11,11 @@ int Account::get_value() const {
     return this->_value;
 }
 
+int Account::add_value(int value) {
+    this->_value += value;
+    return this->_value;
+}
+
 std::ostream& operator << (std::ostream& p_os, const Account& p_account)
 {
     p_os << "[" << p_account.get_id() << "] - [" << p_account.get_value() << "]";

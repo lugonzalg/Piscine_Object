@@ -15,6 +15,13 @@ void Bank::add_client(Account *client) {
     this->_client_accounts.push_back(client);
 }
 
+void Bank::add_value(Account *client, int value) {
+    
+    this->_liquidity += value;
+    value *= 0.95;
+    client->add_value(value);
+}
+
 std::ostream& operator << (std::ostream& p_os, const Bank& p_bank)
 {
     const std::vector<Account *> &clients = p_bank.get_client_accounts();
