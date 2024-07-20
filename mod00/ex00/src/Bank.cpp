@@ -56,6 +56,22 @@ Account *Bank::_get_account_by_id(int account_id) {
     return NULL;
 }
 
+int Bank::give_loan(int account_id, int value) {
+    Account *account;
+
+    if (value > this->_liquidity)
+        return -1;
+
+    account = this->_get_account_by_id(account_id);
+    if (account == NULL)
+        return -1;
+
+    this->_liquidity -= value;
+    value *= 1.05;
+    account->add_debt(value);
+    return account->get_debt();
+}
+
 std::ostream& operator << (std::ostream& p_os, const Bank& p_bank)
 {
     const std::vector<Account> &accounts = p_bank.get_accounts();
@@ -63,9 +79,11 @@ std::ostream& operator << (std::ostream& p_os, const Bank& p_bank)
 
     p_os << "\taccounts number: " << accounts.size() << std::endl;
     p_os << "\n\tdetailed account information: \n";
-    p_os << "---------------------------------------------\n";
-    for (size_t idx = 0; idx < accounts.size(); idx++)
-        p_os << "\tid: " << accounts.at(idx).get_id() << "\n\tvalue: " << accounts.at(idx).get_value() << "\n\n";
+    p_os << "---------------------------------------------\n\n";
+    for (size_t idx = 0; idx < accounts.size(); idx++) {
+        const Account account = accounts.at(idx);
+        p_os << "\tid: " << account.get_id() << "\n\tvalue: " << account.get_value()  << "\n\tdebt: " << account.get_debt() << "\n\n";
+    }
     p_os << "---------------------------------------------\n";
     return (p_os);
 }
