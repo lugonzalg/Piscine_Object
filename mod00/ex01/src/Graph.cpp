@@ -11,11 +11,11 @@ bool Graph::add_vector2(Vector2 &vector2) {
     y = vector2.get_y();
     x = vector2.get_x();
 
-    if (y > this->_size.get_y()) {
+    if (y > this->_size.get_y() or y < 0) {
         std::cerr << "vector out of y boundary!\n";
         return false;
     }
-    if (x > this->_size.get_x()) {
+    if (x > this->_size.get_x() or x < 0) {
         std::cerr << "vector out of x boundary!\n";
         return false;
     }
