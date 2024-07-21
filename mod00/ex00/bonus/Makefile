@@ -7,7 +7,6 @@ CPP=c++
 CPPFLAGS=-Wall -Werror -Wextra -std=c++98 -g3 -fsanitize=address
 INC=-I inc
 FILES = main \
-		Account \
 		Bank
 
 BIN_DIR=bin
