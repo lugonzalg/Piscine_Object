@@ -12,11 +12,11 @@ bool Graph::add_vector2(Vector2 &vector2) {
     x = vector2.get_x();
 
     if (y > this->_size.get_y() or y < 0) {
-        std::cerr << "vector out of y boundary!\n";
+        std::cerr << "Vector out of y boundary, y = " << y << "\n";
         return false;
     }
     if (x > this->_size.get_x() or x < 0) {
-        std::cerr << "vector out of x boundary!\n";
+        std::cerr << "Vector out of x boundary, x = " << x << "\n";
         return false;
     }
 
@@ -24,6 +24,10 @@ bool Graph::add_vector2(Vector2 &vector2) {
         it != this->_vectors[y].end() and (*it).get_x() < x;
         it++);
 
+    if (it != this->_vectors[y].end() and (*it).get_x() == x) {
+        std::cerr << "Vector [x: " << x << ", y: " << y << "] " << "already in graph!\n";
+        return false;
+    }
     this->_vectors[y].insert(it, vector2);
     return true;
 }
