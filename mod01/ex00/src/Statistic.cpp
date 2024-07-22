@@ -12,20 +12,6 @@ Statistic::~Statistic() {
     std::cout << "Statistic destructor\n";
 }
 
-int Position::get_x() const {
-    return this->_x;
-}
-
-int Position::get_y() const {
-    return this->_y;
-}
-
-int Position::get_z() const {
-    return this->_z;
-}
-    std::cout << 
-}
-
 int Statistic::get_exp() const {
     return this->_exp;
 }
