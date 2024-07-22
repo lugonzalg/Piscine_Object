@@ -15,3 +15,5 @@ class Worker {
         ~Worker();
 
 };
+
+std::ostream& operator << (std::ostream& os, const Worker& worker);

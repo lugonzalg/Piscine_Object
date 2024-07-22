@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 class Statistic {
 
     private:
@@ -15,3 +17,5 @@ class Statistic {
         int get_level() const;
 
 };
+
+std::ostream& operator << (std::ostream& os, const Statistic& stat);

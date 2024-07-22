@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 struct Position {
 
     private:
@@ -17,3 +19,5 @@ struct Position {
         int get_z() const;
     
 };
+
+std::ostream& operator << (std::ostream& os, const Position& pos);

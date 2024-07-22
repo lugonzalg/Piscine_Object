@@ -22,3 +22,9 @@ int Position::get_y() const {
 int Position::get_z() const {
     return this->_z;
 }
+
+std::ostream& operator << (std::ostream& os, const Position& pos) {
+
+    os << "x: " << pos.get_x() << "\ny: " << pos.get_y() << "\nz: " << pos.get_z() << std::endl;
+    return os;
+}

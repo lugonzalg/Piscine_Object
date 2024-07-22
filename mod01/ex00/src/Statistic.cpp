@@ -33,3 +33,12 @@ int Statistic::get_exp() const {
 int Statistic::get_level() const {
     return this->_level;
 }
+
+//OPERATORS
+
+std::ostream& operator << (std::ostream& os, const Statistic& stat) {
+
+    os << "exp: " << stat.get_exp() << "\nlevel: " << stat.get_level() << std::endl;
+
+    return os;
+}
