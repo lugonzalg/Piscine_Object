@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include "Position.hpp"
 #include "Statistic.hpp"
 
@@ -13,6 +14,9 @@ class Worker {
 
         Worker(int x, int y, int z, int exp, int level);
         ~Worker();
+
+        const Position& get_position() const;
+        const Statistic& get_stat() const;
 
 };
 
