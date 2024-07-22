@@ -6,8 +6,8 @@
 class Worker {
 
     private:
-        Position& _coordonnee;
-        Statistic& _stat;
+        Position _coordonnee;
+        Statistic _stat;
 
     public:
 
