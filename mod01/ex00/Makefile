@@ -8,7 +8,8 @@ CPPFLAGS=-Wall -Werror -Wextra -std=c++98 -g3 -fsanitize=address
 INC=-I inc
 FILES = main \
 		Position \
-		Statistic
+		Statistic \
+		Worker
 
 BIN_DIR=bin
 BIN=$(BIN_DIR)/$(NAME)
