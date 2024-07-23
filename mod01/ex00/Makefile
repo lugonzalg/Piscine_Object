@@ -10,6 +10,7 @@ FILES = main \
 		Position \
 		Statistic \
 		Shovel \
+		Hammer \
 		Worker
 
 BIN_DIR=bin
