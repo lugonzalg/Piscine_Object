@@ -26,15 +26,21 @@ bool Worker::equip_tool(Tool *tool) {
     if (tool == NULL)
         return false;
 
-    tool->own(this);
-    std::cout << "[WORKER] - Tool equiped!\n";
     this->_tool = tool;
+    std::cout << "[WORKER] - " << this->_name << " Tool equiped!\n";
+    tool->own(this);
     return true;
 }
 
 void Worker::unequip_tool() {
-    this->_tool = NULL;
-    std::cout << "[WORKER] - Tool unequiped!\n";
+    if (this->_tool) {
+        this->_tool = NULL;
+        std::cout << "[WORKER] - " << this->_name << " Tool unequiped!\n";
+    }
+}
+
+void Worker::work() {
+    std::cout << "[WORKER] - " << this->_name << " working!\n";
 }
 
 std::ostream& operator << (std::ostream& os, const Worker& worker) {

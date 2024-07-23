@@ -28,7 +28,7 @@ class Worker {
 
         bool equip_tool(Tool *tool);
         void unequip_tool();
-
+        void work();
 };
 
 std::ostream& operator << (std::ostream& os, const Worker& worker);
