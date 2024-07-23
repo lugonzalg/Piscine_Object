@@ -3,11 +3,25 @@
 #include "Worker.hpp"
 #include "Shovel.hpp"
 #include "Hammer.hpp"
+#include "Workshop.hpp"
 
 int main() {
 
-    Worker mark(0,0,0,0,0);
-    Worker jake(0,0,0,0,0);
+    Workshop wksph1;
+    Workshop wksph2;
+
+    Worker mark("Mark", 0,0,0,0,0);
+    Worker jake("Jake", 0,0,0,0,0);
+
+    wksph1.register_worker(&mark);
+    wksph2.register_worker(&mark);
+    wksph1.register_worker(&jake);
+    wksph2.register_worker(&jake);
+
+
+    wksph1.release_worker(&jake);
+    wksph1.executeWorkDay();
+    wksph2.executeWorkDay();
 
     Shovel shovel;
     Hammer hammer;
