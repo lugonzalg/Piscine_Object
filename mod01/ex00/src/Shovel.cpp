@@ -12,13 +12,14 @@ Shovel::~Shovel() {
 void Shovel::own(Worker *worker) {
 
     if (this->_owner)
-        this->_owner->unequip_shovel();
+        this->_owner->unequip_tool();
 
+    std::cout << "[SHOVEL] - owned!\n";
     this->_owner = worker;
 
 }
 
-bool Shovel::use() const {
+void Shovel::use() {
     std::cout << "[SHOVEL] - used\n";
     this->_numberOfUses++;
 }

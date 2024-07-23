@@ -2,9 +2,11 @@
 
 #include <iostream>
 
+#include "Tool.hpp"
+
 class Worker;
 
-struct Shovel {
+struct Shovel : public Tool {
 
     private:
 
@@ -16,7 +18,7 @@ struct Shovel {
         Shovel();
         ~Shovel();
 
-        bool use() const;
+        void use();
         void own(Worker *worker);
         int get_number_of_uses() const;
 
