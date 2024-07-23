@@ -18,6 +18,11 @@ void Shovel::own(Worker *worker) {
 
 }
 
+bool Shovel::use() const {
+    std::cout << "[SHOVEL] - used\n";
+    this->_numberOfUses++;
+}
+
 int Shovel::get_number_of_uses() const {
     return this->_numberOfUses;
 }

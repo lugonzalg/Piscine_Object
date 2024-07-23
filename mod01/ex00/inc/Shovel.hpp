@@ -16,7 +16,8 @@ struct Shovel {
         Shovel();
         ~Shovel();
 
-        void own(Worker *);
+        bool use() const;
+        void own(Worker *worker);
         int get_number_of_uses() const;
 
 };
