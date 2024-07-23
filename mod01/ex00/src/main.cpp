@@ -1,6 +1,8 @@
 #include <iostream>
 
 #include "Worker.hpp"
+#include "Shovel.hpp"
+#include "Hammer.hpp"
 
 int main() {
 
@@ -8,14 +10,17 @@ int main() {
     Worker jake(0,0,0,0,0);
 
     Shovel shovel;
+    Hammer hammer;
 
-    mark.equip_shovel(NULL);
-    jake.equip_shovel(NULL);
+    mark.equip_tool(NULL);
+    jake.equip_tool(NULL);
 
-    mark.equip_shovel(&shovel);
-    jake.equip_shovel(&shovel);
+    mark.equip_tool(&shovel);
+    jake.equip_tool(&shovel);
+    jake.equip_tool(&hammer);
+    mark.equip_tool(&hammer);
 
-    mark.unequip_shovel();
-    jake.unequip_shovel();
+    mark.unequip_tool();
+    jake.unequip_tool();
     return 0;
 }
