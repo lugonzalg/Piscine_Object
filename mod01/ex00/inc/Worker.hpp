@@ -3,14 +3,14 @@
 #include <iostream>
 #include "Position.hpp"
 #include "Statistic.hpp"
-#include "Shovel.hpp"
+#include "Tool.hpp"
 
 class Worker {
 
     private:
         Position _coordonnee;
         Statistic _stat;
-        Shovel* _shovel;
+        Tool* _tool;
 
     public:
 
@@ -19,8 +19,8 @@ class Worker {
 
         const Position& get_position() const;
         const Statistic& get_stat() const;
-        bool equip_shovel(Shovel *shovel);
-        void unequip_shovel();
+        bool equip_tool(Tool *tool);
+        void unequip_tool();
 
 };
 

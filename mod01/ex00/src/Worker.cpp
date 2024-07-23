@@ -1,7 +1,7 @@
 #include "Worker.hpp"
 
 Worker::Worker(int x, int y, int z, int exp, int level) : 
-    _coordonnee(x, y, z), _stat(exp, level), _shovel(NULL) {
+    _coordonnee(x, y, z), _stat(exp, level), _tool(NULL) {
 
     std::cout << "Worker constructor called\n";
     std::cout << *this;
@@ -17,20 +17,20 @@ const Statistic& Worker::get_stat() const {
     return this->_stat;
 }
 
-bool Worker::equip_shovel(Shovel *shovel) {
+bool Worker::equip_tool(Tool *tool) {
 
-    if (shovel == NULL)
+    if (tool == NULL)
         return false;
 
-    shovel->own(this);
-    std::cout << "[WORKER] - Shovel equiped!\n";
-    this->_shovel = shovel;
+    tool->own(this);
+    std::cout << "[WORKER] - Tool equiped!\n";
+    this->_tool = tool;
     return true;
 }
 
-void Worker::unequip_shovel() {
-    this->_shovel = NULL;
-    std::cout << "[WORKER] - Shovel unequiped!\n";
+void Worker::unequip_tool() {
+    this->_tool = NULL;
+    std::cout << "[WORKER] - Tool unequiped!\n";
 }
 
 std::ostream& operator << (std::ostream& os, const Worker& worker) {
