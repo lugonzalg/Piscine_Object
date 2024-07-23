@@ -3,12 +3,12 @@
 #include "Position.hpp"
 
 Position::Position(int x, int y, int z) : _x(x), _y(y), _z(z) {
-    std::cout << "Positon constructor with coords. x: " << x
-        << ", y: " << y << ", z: " << z << std::endl;
+    std::cout << "[POSITON] - constructor called\n";
+    std::cout << *this << std::endl;
 }
 
 Position::~Position() {
-    std::cout << "Postion destructor\n";
+    std::cout << "[POSITION] - destructor called\n";
 }
 
 int Position::get_x() const {
@@ -25,6 +25,6 @@ int Position::get_z() const {
 
 std::ostream& operator << (std::ostream& os, const Position& pos) {
 
-    os << "x: " << pos.get_x() << "\ny: " << pos.get_y() << "\nz: " << pos.get_z() << std::endl;
+    os << "[POSITION] - x: " << pos.get_x() << ", y: " << pos.get_y() << ", z: " << pos.get_z();
     return os;
 }

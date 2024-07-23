@@ -2,19 +2,22 @@
 #include "Worker.hpp"
 
 Shovel::Shovel() : _numberOfUses(0), _owner(NULL) {
-    std::cout << "Shovel constructor called\n";
+    std::cout << "[SHOVEL] - constructor called\n";
+    std::cout << *this << std::endl;
 }
 
 Shovel::~Shovel() {
-    std::cout << "Shovel destructor called\n";
+    std::cout << "[SHOVEL] - destructor called\n";
 }
 
 void Shovel::own(Worker *worker) {
 
-    if (this->_owner)
-        this->_owner->unequip_tool();
-
     std::cout << "[SHOVEL] - owned!\n";
+    if (this->_owner) {
+        std::cout << "[SHOVEL] - " << this->_owner->get_name() << " lost owne\n";
+        this->_owner->unequip_tool();
+    }
+
     this->_owner = worker;
 
 }
@@ -29,6 +32,6 @@ int Shovel::get_number_of_uses() const {
 }
 
 std::ostream& operator << (std::ostream& os, const Shovel& shovel) {
-    os << "number of uses: " << shovel.get_number_of_uses() << std::endl;
+    os << "[SHOVEL] - number of uses: " << shovel.get_number_of_uses();
     return os;
 }

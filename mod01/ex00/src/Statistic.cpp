@@ -3,13 +3,13 @@
 
 Statistic::Statistic(int exp, int level) : _exp(exp), _level(level) {
 
-    std::cout << "Statistic constructor with values. exp: "
-        << exp << ", level: " << _level << std::endl;
+    std::cout << "[STATISTIC] - constructor called\n";
+    std::cout << *this << std::endl;
 
 }
 
 Statistic::~Statistic() {
-    std::cout << "Statistic destructor\n";
+    std::cout << "[STATISTIC] - destructor\n";
 }
 
 int Statistic::get_exp() const {
@@ -24,7 +24,6 @@ int Statistic::get_level() const {
 
 std::ostream& operator << (std::ostream& os, const Statistic& stat) {
 
-    os << "exp: " << stat.get_exp() << "\nlevel: " << stat.get_level() << std::endl;
-
+    os << "[STATISTIC] - exp: " << stat.get_exp() << ", level: " << stat.get_level();
     return os;
 }
