@@ -9,6 +9,7 @@ INC=-I inc
 FILES = main \
 		Position \
 		Statistic \
+		Shovel \
 		Worker
 
 BIN_DIR=bin
