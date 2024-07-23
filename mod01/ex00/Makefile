@@ -11,6 +11,7 @@ FILES = main \
 		Statistic \
 		Shovel \
 		Hammer \
+		Workshop \
 		Worker
 
 BIN_DIR=bin
