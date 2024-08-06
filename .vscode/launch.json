@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "/home/lukas/Piscine_Object/mod00/ex00/bonus/bin/bank",
+            "program": "/home/lukas/Piscine_Object/mod03/ex00/bin/car",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
