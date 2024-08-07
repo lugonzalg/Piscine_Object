@@ -4,7 +4,7 @@ class Shape {
 
     public:
 
-        virtual float area() = 0;
-        virtual float perimeter() = 0;
+        virtual float area() const = 0;
+        virtual float perimeter() const = 0;
 
 };
