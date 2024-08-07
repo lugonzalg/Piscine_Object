@@ -14,7 +14,7 @@ class Triangle : public Shape {
                 std::cout << "[TRIANGLE] - constructor called\n";
                 std::cout << "   + sideA: " << sideA << std::endl;
                 std::cout << "   + sideB: " << sideB << std::endl;
-                std::cout << "   + sideC: " << sideC << std::endl;
+                std::cout << "   + sideC: " << sideC << "\n\n";
             }
 
         ~Triangle() {}
