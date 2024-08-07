@@ -31,4 +31,6 @@ class Rectangle : public Shape {
         float _sideA;
         float _sideB;
 
+        Rectangle() {};
+
 };
